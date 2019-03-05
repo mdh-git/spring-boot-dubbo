@@ -5,7 +5,6 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Service;
 import service.OrderService;
 import service.UserService;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import java.util.List;
 
@@ -25,7 +24,6 @@ public class OrderServiceImpl implements OrderService {
     @Reference
     UserService userService;
 
-    @HystrixCommand(fallbackMethod="hello")
     @Override
     public List<UserAddress> initOrder(String userId) {
         System.out.println("用户id:" + userId);
